@@ -6,12 +6,12 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 13:34:52 by engo              #+#    #+#             */
-/*   Updated: 2022/10/19 15:01:44 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/19 16:41:39 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minilibx-linux/mlx.h"
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 int	close_map(t_all *g)
 {
