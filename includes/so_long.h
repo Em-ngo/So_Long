@@ -21,14 +21,28 @@
 # include <X11/Xlib.h>
 # include <stdlib.h>
 
+typedef struct s_pos
+{
+	int	x;
+	int	y;
+	int	right;
+	int	left;
+}				t_pos;
+
 typedef struct s_all
 {
 	void	*mlx_ptr;
 	void	*window;
-	void	*img;
-	char	*name;
 	int		width;
 	int		height;
+	void	*img;
+	char	*name;
+	char	**map;
+	int		row;
+	int		column;
+	int		x;
+	int		y;
+	int		move;
 }				t_all;
 
 void	free_ptr(t_all *g);
