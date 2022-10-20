@@ -21,6 +21,17 @@
 # include <X11/Xlib.h>
 # include <stdlib.h>
 
+typedef struct s_error
+{
+	int		player;
+	int		collectible;
+	int		exit;
+	int		fullmap;
+	int		shape;
+	int		closed;
+	size_t	size;
+}				t_error;
+
 typedef struct s_pos
 {
 	int	x;
