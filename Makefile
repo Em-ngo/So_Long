@@ -9,6 +9,7 @@ NAME =	so_long
 DIR_INC = -I ./includes/
 
 SRCS =	so_long.c \
+		image.c \
 
 SRCS_DIR = ./srcs
 
