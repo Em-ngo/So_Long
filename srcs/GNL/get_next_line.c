@@ -1,0 +1,102 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/24 17:10:31 by engo              #+#    #+#             */
+/*   Updated: 2022/10/24 17:10:43 by engo             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long.h"
+
+void	*ft_memcpy(void *dest, void *src, size_t n)
+{
+	char	*ndest;
+	char	*nsrc;
+	size_t	i;
+
+	ndest = (char *)dest;
+	nsrc = (char *)src;
+	if (!dest && !src)
+		return (0);
+	i = 0;
+	while (n > i)
+	{
+		ndest[i] = nsrc[i];
+		i++;
+	}
+	return (dest);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char	*join;
+
+	if (s2 != 0)
+	{
+		join = malloc(sizeof (char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+		if (!join)
+			return (0);
+		ft_memcpy(join, s1, ft_strlen(s1));
+		ft_memcpy(join + ft_strlen(s1), s2, ft_strlen(s2) + 1);
+		join[ft_strlen(s1) + ft_strlen(s2)] = 0;
+		free(s1);
+		s1 = NULL;
+		return (join);
+	}
+	return (s1);
+}
+
+char	*freeee(char *save)
+{
+	if (save)
+	{
+		free(save);
+		save = NULL;
+	}
+	return (save);
+}
+
+char	*ft_strdup(char *s)
+{
+	char	*tab;
+	size_t	n;
+
+	n = 0;
+	tab = malloc(sizeof (char) * ft_strlen(s) + 1);
+	if (!tab)
+		return (0);
+	while (s[n])
+	{
+		tab[n] = s[n];
+		n++;
+	}
+	tab[n] = 0;
+	freeee(s);
+	return (tab);
+}
+
+char	**get_next_line(int fd)
+{
+	static char	*save;
+	char		buff[BUFFER_SIZE + 1];
+	int			ret;
+	char		*line;
+
+	ret = 1;
+	if (fd > 1024 || fd < 0 || BUFFER_SIZE < 0 || ret < 0)
+		return (NULL);
+	while (ret != 0)
+	{
+		ret = read(fd, buff, BUFFER_SIZE);
+		buff[ret] = 0;
+		if (ret < 0)
+			return (NULL);
+		save = ft_strjoin(save, buff);
+	}
+	line = ft_strdup(save);
+	return (ft_split(line, '\n'));
+}

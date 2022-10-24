@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 13:34:52 by engo              #+#    #+#             */
-/*   Updated: 2022/10/23 17:34:21 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/24 18:43:54 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	free_ptr(t_all *g)
 	{
 		if (g->window)
 		{
-			if (g->img)
+			// if (g->img)
 				// free_image(g);
 			mlx_destroy_window(g->mlx_ptr, g->window);
 		}
@@ -42,17 +42,20 @@ void	free_ptr(t_all *g)
 	}
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
 	t_all	jeu;
+	(void)ac;
 
-	jeu.width = 1920;
-	jeu.height = 1080;
 	jeu.name = "So_Long";
 	jeu.mlx_ptr = mlx_init();
-	jeu.window = mlx_new_window(jeu.mlx_ptr, jeu.width, jeu.height, jeu.name);
-	jeu.img = mlx_new_image(jeu.mlx_ptr, jeu.width, jeu.height);
-	put_img(jeu.mlx_ptr, jeu.window);
+	open_map(&jeu, av);
+	init_size_map(&jeu);
+	jeu.window = mlx_new_window(jeu.mlx_ptr, jeu.x * 50, jeu.y * 50, jeu.name);
+	init_img(&jeu);
+	// jeu.g->wall.ptr = mlx_new_image(jeu.mlx_ptr, jeu.width, jeu.height);
+	// put_img(jeu.mlx_ptr, jeu.window);
 	mlx_hook(jeu.window, 33, 1L << 17, &close_map, &jeu);
 	mlx_loop(jeu.mlx_ptr);
+	// free_ptr(&jeu);
 }

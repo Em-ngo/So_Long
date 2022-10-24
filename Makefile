@@ -2,7 +2,7 @@ CC = gcc
 
 PATH_MLX = ./minilibx-linux/
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -D BUFFER_SIZE=1000 -Wall -Wextra -Werror
 
 NAME =	so_long
 
@@ -10,6 +10,11 @@ DIR_INC = -I ./includes/
 
 SRCS =	so_long.c \
 		image.c \
+		GNL/get_next_line.c \
+		init_map.c \
+		ft_split.c \
+		ft_strlen.c \
+
 
 SRCS_DIR = ./srcs
 
