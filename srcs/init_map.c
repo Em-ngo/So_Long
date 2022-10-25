@@ -6,35 +6,54 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/10/24 19:03:13 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/25 19:00:42 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "../minilibx-linux/mlx.h"
 
+void	put_img_on_window2(t_all *all, int x_pos, int y_pos, char c)
+{
+	if (c == '0')
+	{
+		mlx_put_image_to_window(all->mlx_ptr, all->window, &all->g.f,
+			x_pos, y_pos);
+		printf("sol\n");
+	}
+	else if (c == 'E')
+	{
+		mlx_put_image_to_window(all->mlx_ptr, all->window, &all->g.e,
+			x_pos, y_pos);
+		printf("exit\n");
+	}
+}
+
 void	put_img_on_window(t_all *all, int x_pos, int y_pos, char c)
 {
 	if (c == '1')
 	{
-		mlx_put_image_to_window(all->mlx_ptr, all->window, all->g.w,
+		mlx_put_image_to_window(all->mlx_ptr, all->window, &all->g.w,
 			x_pos, y_pos);
+		printf("wall\n");
 	}
 	else if (c == 'P')
 	{
-		mlx_put_image_to_window(all->mlx_ptr, all->window, all->g.p,
+		mlx_put_image_to_window(all->mlx_ptr, all->window, &all->g.p,
 			x_pos, y_pos);
+		printf("player\n");
 	}
 	else if (c == 'C')
 	{
-		mlx_put_image_to_window(all->mlx_ptr, all->window, all->g.c,
+		mlx_put_image_to_window(all->mlx_ptr, all->window, &all->g.c,
 			x_pos, y_pos);
+		printf("collectibles\n");
 	}
 	else
-		choose_img_part_2(c, g, x, y);
+		put_img_on_window2(all, x_pos, y_pos, c);
 }
 
-mlx_put_image_to_window(all->mlx_ptr, all->window, x_pos, y_pos);
+// mlx_put_image_to_window(all->mlx_ptr, all->window, x_pos, y_pos);
 
 void	init_img(t_all *all)
 {
@@ -46,7 +65,7 @@ void	init_img(t_all *all)
 			&all->g.e.height, &all->g.e.width);
 	all->g.c.ptr = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/collect.xpm",
 			&all->g.c.height, &all->g.c.width);
-	all->g.f.ptr = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/floor.xpm",
+	all->g.f.ptr = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/sol.xpm",
 			&all->g.f.height, &all->g.f.width);
 }
 
