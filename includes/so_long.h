@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/10/27 17:44:28 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/27 19:15:24 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <stddef.h>
 # include <sys/types.h>
 # include <unistd.h>
+# include "../minilibx-linux/mlx.h"
 
 # define NAME "So_Long"
 # define WALL "sprites/wall.xpm"
@@ -75,6 +76,7 @@ typedef struct s_all
 	int		fd;
 	int		x;
 	int		y;
+	int		win;
 	t_data	window;
 	t_data	img;
 	t_data	data;
@@ -94,5 +96,8 @@ void	get_pos_player(t_all *all);
 int		keybinds(int keycode, t_all *all);
 int		can_move(t_all *all);
 void	init_struct(t_all *all);
+void	collect_all(t_all *all);
+int		can_exit2(t_all *all, int y, int x);
+int		can_exit(t_all *all);
 
 #endif

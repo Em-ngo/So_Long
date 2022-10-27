@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 15:36:31 by engo              #+#    #+#             */
-/*   Updated: 2022/10/27 17:42:34 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/27 19:04:10 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	move_r(t_all *all, int moves)
 {
 	all->data.right = 1;
-	if (can_move(all))
+	if (can_move(all) && can_exit(all))
 	{
 		all->map[all->data.player_y][all->data.player_x] = '0';
 		all->data.player_x++;
@@ -28,7 +28,7 @@ void	move_r(t_all *all, int moves)
 void	move_d(t_all *all, int moves)
 {
 	all->data.down = 1;
-	if (can_move(all))
+	if (can_move(all) && can_exit(all))
 	{
 		all->map[all->data.player_y][all->data.player_x] = '0';
 		all->data.player_y++;
@@ -41,7 +41,7 @@ void	move_d(t_all *all, int moves)
 void	move_l(t_all *all, int moves)
 {
 	all->data.left = 1;
-	if (can_move(all))
+	if (can_move(all) && can_exit(all))
 	{
 		all->map[all->data.player_y][all->data.player_x] = '0';
 		all->data.player_x--;
@@ -55,7 +55,7 @@ void	move_l(t_all *all, int moves)
 void	move_u(t_all *all, int moves)
 {
 	all->data.up = 1;
-	if (can_move(all))
+	if (can_move(all) && can_exit(all))
 	{
 		all->map[all->data.player_y][all->data.player_x] = '0';
 		all->data.player_y--;
@@ -84,5 +84,6 @@ int	keybinds(int keycode, t_all *all)
 		printf("%s\n", all->map[i++]);
 	// ft_putnbr_fd(moves, 1);
 	// ft_putstr_fd("\n", 1);
+	collect_all(all);
 	return (0);
 }

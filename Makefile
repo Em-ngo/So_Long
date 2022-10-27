@@ -17,6 +17,7 @@ SRCS =	so_long.c \
 		moves.c \
 		parsing.c \
 		initialisation_struct.c \
+		parsing2.c \
 
 
 SRCS_DIR = ./srcs

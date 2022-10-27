@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/10/27 15:33:20 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/27 19:39:08 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,11 @@ void	init_size_map(t_all *g)
 	i = 0;
 	g->x = ft_strlen(g->map[i]);
 	while (g->map[i])
+	{	
+		if (ft_strlen(g->map[0]) != ft_strlen(g->map[i]))
+			exit (1);
 		i++;
+	}
 	g->y = i;
+	collect_all(g);
 }
