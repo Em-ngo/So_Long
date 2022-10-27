@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/10/27 16:04:26 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/27 17:14:20 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	init_size_map(t_all *g);
 void	init_img(t_all *all);
 void	put_img_on_window(t_all *all, int x_pos, int y_pos, char c);
 int		all_map(t_all *all);
-int		keybinds(t_all *all, int keycode);
+int		keybinds(int keycode, t_all *all);
 void	get_pos_player(t_all *all);
 
 #endif
