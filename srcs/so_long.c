@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 13:34:52 by engo              #+#    #+#             */
-/*   Updated: 2022/10/27 17:23:47 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/27 17:44:04 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(int ac, char **av)
 	t_all	jeu;
 	(void)ac;
 
+	init_struct(&jeu);
 	jeu.data.mlx_ptr = mlx_init();
 	open_map(&jeu, av);
 	init_size_map(&jeu);
@@ -54,7 +55,7 @@ int	main(int ac, char **av)
 			NAME);
 	init_img(&jeu);
 	get_pos_player(&jeu);
-	jeu.data.img = mlx_new_image(jeu.data.mlx_ptr, jeu.x, jeu.y);
+	// jeu.data.img = mlx_new_image(jeu.data.mlx_ptr, jeu.x, jeu.y);
 	all_map(&jeu);
 	mlx_key_hook(jeu.data.mlx_win, keybinds, &jeu);
 	mlx_loop_hook(jeu.data.mlx_ptr, all_map, &jeu);

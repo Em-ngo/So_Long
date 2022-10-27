@@ -1,15 +1,9 @@
 #include "../includes/so_long.h"
 
-void	init_struct(t_error *error, t_all *jeu)
+void	init_struct(t_all *all)
 {
-	error->closed = 0;
-	error->square = 0;
-	error->size = 0;
-	error->player = 0;
-	error->collectible = 0;
-	error->exit = 0;
-	error->fullmap = 0;
-	jeu->row = 0;
-	jeu->column = 0;
-	jeu->move = 0;
+	all->data.right = 0;
+	all->data.down = 0;
+	all->data.left = 0;
+	all->data.up = 0;
 }

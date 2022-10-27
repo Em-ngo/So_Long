@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 15:36:31 by engo              #+#    #+#             */
-/*   Updated: 2022/10/27 17:17:54 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/27 17:42:34 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,55 @@
 
 void	move_r(t_all *all, int moves)
 {
-	all->map[all->data.player_y][all->data.player_x] = '0';
-	all->data.player_x++;
-	all->map[all->data.player_y][all->data.player_x] = 'P';
-	moves++;
+	all->data.right = 1;
+	if (can_move(all))
+	{
+		all->map[all->data.player_y][all->data.player_x] = '0';
+		all->data.player_x++;
+		all->map[all->data.player_y][all->data.player_x] = 'P';
+		moves++;
+	}
+	all->data.right = 0;
 }
 
 void	move_d(t_all *all, int moves)
 {
-	all->map[all->data.player_y][all->data.player_x] = '0';
-	all->data.player_y++;
-	all->map[all->data.player_y][all->data.player_x] = 'P';
-	moves++;
+	all->data.down = 1;
+	if (can_move(all))
+	{
+		all->map[all->data.player_y][all->data.player_x] = '0';
+		all->data.player_y++;
+		all->map[all->data.player_y][all->data.player_x] = 'P';
+		moves++;
+	}
+	all->data.down = 0;
 }
 
 void	move_l(t_all *all, int moves)
 {
-	all->map[all->data.player_y][all->data.player_x] = '0';
-	all->data.player_x--;
-	all->map[all->data.player_y][all->data.player_x] = 'P';
-	moves++;
+	all->data.left = 1;
+	if (can_move(all))
+	{
+		all->map[all->data.player_y][all->data.player_x] = '0';
+		all->data.player_x--;
+		all->map[all->data.player_y][all->data.player_x] = 'P';
+		moves++;
+	}
+	all->data.left = 0;
 }
 
 
 void	move_u(t_all *all, int moves)
 {
-	printf("%d\n", all->data.player_x);
-	printf("%d\n", all->data.player_y);
-	all->map[all->data.player_y][all->data.player_x] = '0';
-	all->data.player_y--;
-	all->map[all->data.player_y][all->data.player_x] = 'P';
-	moves++;
+	all->data.up = 1;
+	if (can_move(all))
+	{
+		all->map[all->data.player_y][all->data.player_x] = '0';
+		all->data.player_y--;
+		all->map[all->data.player_y][all->data.player_x] = 'P';
+		moves++;
+	}
+	all->data.up = 0;
 }
 
 int	keybinds(int keycode, t_all *all)

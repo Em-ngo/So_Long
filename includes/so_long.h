@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/10/27 17:14:20 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/27 17:44:28 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct s_error
 	int		fullmap;
 	int		shape;
 	int		closed;
-	size_t	size;
 }				t_error;
 
 typedef struct s_img
@@ -60,6 +59,10 @@ typedef struct s_data
 	int		player_x;
 	int		player_y;
 	int		collectibles;
+	int		right;
+	int		left;
+	int		down;
+	int		up;
 }				t_data;
 
 typedef struct s_all
@@ -68,8 +71,6 @@ typedef struct s_all
 	char	**av;
 	char	**map;
 	int		nb_lines;
-	int		width;
-	int		height;
 	int		steps;
 	int		fd;
 	int		x;
@@ -89,7 +90,9 @@ void	init_size_map(t_all *g);
 void	init_img(t_all *all);
 void	put_img_on_window(t_all *all, int x_pos, int y_pos, char c);
 int		all_map(t_all *all);
-int		keybinds(int keycode, t_all *all);
 void	get_pos_player(t_all *all);
+int		keybinds(int keycode, t_all *all);
+int		can_move(t_all *all);
+void	init_struct(t_all *all);
 
 #endif
