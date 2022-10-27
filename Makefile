@@ -14,6 +14,8 @@ SRCS =	so_long.c \
 		ft_split.c \
 		ft_strlen.c \
 		initmap2.c \
+		moves.c \
+		parsing.c \
 
 
 SRCS_DIR = ./srcs
