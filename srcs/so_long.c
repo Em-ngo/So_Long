@@ -28,17 +28,17 @@ int	close_map(t_all *g)
 
 void	free_ptr(t_all *g)
 {
-	if (g->mlx_ptr)
+	if (g->data.mlx_ptr)
 	{
-		if (g->window)
+		if (g->data.mlx_win)
 		{
 			// if (g->img)
 				// free_image(g);
-			mlx_destroy_window(g->mlx_ptr, g->window);
+			mlx_destroy_window(g->data.mlx_ptr, g->data.mlx_win);
 		}
-		mlx_destroy_display(g->mlx_ptr);
-		free(g->mlx_ptr);
-		g->mlx_ptr = NULL;
+		mlx_destroy_display(g->data.mlx_ptr);
+		free(g->data.mlx_ptr);
+		g->data.mlx_ptr = NULL;
 	}
 }
 
@@ -47,15 +47,14 @@ int	main(int ac, char **av)
 	t_all	jeu;
 	(void)ac;
 
-	jeu.name = "So_Long";
-	jeu.mlx_ptr = mlx_init();
+	jeu.data.mlx_ptr = mlx_init();
 	open_map(&jeu, av);
 	init_size_map(&jeu);
-	jeu.window = mlx_new_window(jeu.mlx_ptr, jeu.x * 50, jeu.y * 50, jeu.name);
-	init_img(&jeu);
+	jeu.data.mlx_win = mlx_new_window(jeu.data.mlx_ptr, jeu.width * 50, jeu.height * 50, NAME);
+	// init_img(&jeu);
 	// jeu.g->wall.ptr = mlx_new_image(jeu.mlx_ptr, jeu.width, jeu.height);
 	// put_img(jeu.mlx_ptr, jeu.window);
-	mlx_hook(jeu.window, 33, 1L << 17, &close_map, &jeu);
-	mlx_loop(jeu.mlx_ptr);
+	mlx_hook(jeu.data.win_ptr, 33, 1L << 17, &close_map, &jeu);
+	mlx_loop(jeu.data.mlx_ptr);
 	// free_ptr(&jeu);
 }

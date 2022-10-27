@@ -24,6 +24,13 @@
 # include <sys/types.h>
 # include <unistd.h>
 
+# define NAME "Yu Yu Hakusho"
+# define WALL "sprites/wall.xpm"
+# define PLAYER "sprites/player.xpm"
+# define COLLECT "sprites/collect.xpm"
+# define FLOOR "sprites/floor.xpm"
+# define EXIT "sprites/exit.xpm"
+
 
 typedef struct s_error
 {
@@ -37,37 +44,46 @@ typedef struct s_error
 }				t_error;
 
 
-typedef struct s_image
+typedef struct s_img
 {
-	void		*ptr;
+	void		*img;
 	int			height;
 	int			width;
-}				t_image;
+	char		*adr;
+	char		*path;
+}				t_img;
 
-typedef struct s_simg
+typedef struct s_data
 {
-	t_image		w;
-	t_image		p;
-	t_image		c;
-	t_image		e;
-	t_image		f;
-}				t_simg;
-
+	void	*mlx;
+	void	*img;
+	void	*mlx_ptr;
+	void	*mlx_win;
+	void	*win_ptr;
+	int		player_x;
+	int		player_y;
+	int		collectibles;
+}				t_data;
 
 typedef struct s_all
 {
-	void	*mlx_ptr;
-	void	*window;
-	char	*name;
+	int		ac;
+	char	**av;
 	char	**map;
-	// int		*img;
+	int		nb_lines;
+	int		width;
+	int		height;
+	int		steps;
+	int		fd;
 	int		x;
 	int		y;
-	t_simg	g;
+	t_data	window;
+	t_data	img;
+	t_data	data;
+	t_img	image[5];
 }				t_all;
 
 void	*put_img(void *mlx, void *window);
-t_image	ft_new_sprite(void *mlx, char *path);
 void	open_map(t_all *g, char **av);
 void	free_ptr(t_all *g);
 char	**ft_split(char const *s, char c);
@@ -75,5 +91,6 @@ size_t	ft_strlen(char *str);
 char	**get_next_line(int fd);
 void	init_size_map(t_all *g);
 void	init_img(t_all *all);
+void	put_img_on_window(t_all *all, int x_pos, int y_pos, char c);
 
 #endif
