@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/10/25 19:02:18 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/27 13:51:55 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,12 @@
 # include <sys/types.h>
 # include <unistd.h>
 
-# define NAME "Yu Yu Hakusho"
+# define NAME "So_Long"
 # define WALL "sprites/wall.xpm"
 # define PLAYER "sprites/player.xpm"
 # define COLLECT "sprites/collect.xpm"
 # define FLOOR "sprites/floor.xpm"
 # define EXIT "sprites/exit.xpm"
-
 
 typedef struct s_error
 {
@@ -42,7 +41,6 @@ typedef struct s_error
 	int		closed;
 	size_t	size;
 }				t_error;
-
 
 typedef struct s_img
 {
@@ -59,7 +57,6 @@ typedef struct s_data
 	void	*img;
 	void	*mlx_ptr;
 	void	*mlx_win;
-	void	*win_ptr;
 	int		player_x;
 	int		player_y;
 	int		collectibles;
@@ -83,7 +80,6 @@ typedef struct s_all
 	t_img	image[5];
 }				t_all;
 
-void	*put_img(void *mlx, void *window);
 void	open_map(t_all *g, char **av);
 void	free_ptr(t_all *g);
 char	**ft_split(char const *s, char c);
@@ -92,5 +88,5 @@ char	**get_next_line(int fd);
 void	init_size_map(t_all *g);
 void	init_img(t_all *all);
 void	put_img_on_window(t_all *all, int x_pos, int y_pos, char c);
-
+int		all_map(t_all *all);
 #endif

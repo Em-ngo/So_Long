@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 19:01:33 by engo              #+#    #+#             */
-/*   Updated: 2022/10/25 19:01:48 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/27 13:49:51 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,18 @@ int	all_map(t_all *all)
 	int	i;
 	int	j;
 
+	i = -1;
 	y = 0;
-	i = 0;
-	x = 0;
-	j = 0;
-	while (y < 200)
+	while (all->map[++i])
 	{
-		while (x < 200)
+		x = 0;
+		j = -1;
+		while (all->map[i][++j])
 		{
 			put_img_on_window(all, x, y, all->map[i][j]);
 			x += 50;
-			j++;
 		}
-		j = 0;
-		x = 0;
 		y += 50;
-		i++;
 	}
 	return (0);
 }

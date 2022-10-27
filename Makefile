@@ -9,7 +9,6 @@ NAME =	so_long
 DIR_INC = -I ./includes/
 
 SRCS =	so_long.c \
-		image.c \
 		GNL/get_next_line.c \
 		init_map.c \
 		ft_split.c \
