@@ -48,7 +48,7 @@ void	put_img_on_window(t_all *all, int x_pos, int y_pos, char c)
 		printf("collectibles\n");
 	}
 	else
-		put_img_on_window2(all, x_pos, y_pos, c);
+		put_img_on_window_2(all, x_pos, y_pos, c);
 }
 
 

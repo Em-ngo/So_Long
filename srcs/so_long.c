@@ -50,14 +50,8 @@ int	main(int ac, char **av)
 	jeu.data.mlx_ptr = mlx_init();
 	open_map(&jeu, av);
 	init_size_map(&jeu);
-<<<<<<< HEAD
 	jeu.data.mlx_win = mlx_new_window(jeu.data.mlx_ptr, jeu.width * 50, jeu.height * 50, NAME);
 	// init_img(&jeu);
-=======
-	jeu.window = mlx_new_window(jeu.mlx_ptr, jeu.x * 50, jeu.y * 50, jeu.name);
-	init_img(&jeu);
-	all_map(&jeu);
->>>>>>> 71890cf0e4e35eb5c9301505530ed7bfafb3ca53
 	// jeu.g->wall.ptr = mlx_new_image(jeu.mlx_ptr, jeu.width, jeu.height);
 	// put_img(jeu.mlx_ptr, jeu.window);
 	mlx_hook(jeu.data.win_ptr, 33, 1L << 17, &close_map, &jeu);
