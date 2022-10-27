@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/10/24 18:45:32 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/25 19:02:18 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,10 @@ size_t	ft_strlen(char *str);
 char	**get_next_line(int fd);
 void	init_size_map(t_all *g);
 void	init_img(t_all *all);
+<<<<<<< HEAD
+=======
+int		all_map(t_all *all);
+>>>>>>> 71890cf0e4e35eb5c9301505530ed7bfafb3ca53
 void	put_img_on_window(t_all *all, int x_pos, int y_pos, char c);
 
 #endif

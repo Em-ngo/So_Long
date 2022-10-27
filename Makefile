@@ -14,6 +14,7 @@ SRCS =	so_long.c \
 		init_map.c \
 		ft_split.c \
 		ft_strlen.c \
+		initmap2.c \
 
 
 SRCS_DIR = ./srcs
@@ -33,7 +34,7 @@ ${NAME}: ${OBJS}
 
 $(DIR_OBJ)/%.o: $(SRCS_DIR)/%.c
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(DIR_INC) -c -o $@ $< -MMD
+	$(CC) $(CFLAGS) $(DIR_INC) -c -o $@ $< -MMD -g
 
 clean:
 		rm -rf ${DIR_OBJ}
