@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/10/27 19:15:24 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/31 18:55:56 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@ typedef struct s_error
 	int		shape;
 	int		closed;
 }				t_error;
+
+typedef struct s_path
+{
+	int		player_x;
+	int		player_y;
+	int		exit_x;
+	int		exit_y;
+}	t_path;
 
 typedef struct s_img
 {
@@ -99,5 +107,14 @@ void	init_struct(t_all *all);
 void	collect_all(t_all *all);
 int		can_exit2(t_all *all, int y, int x);
 int		can_exit(t_all *all);
+void	ft_putstr_fd(char *s, int fd);
+void	goodpath(t_path *path, char **tmp);
+void	struct_path(t_all *data, char **map_tmp);
+void	valid_path(char **tmp, int x, int y);
+int		format_checker(char *str);
+void	free_map(char **map);
+char	*ft_strrchr(const char *s, int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strdup(char *s1);
 
 #endif

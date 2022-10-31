@@ -18,7 +18,8 @@ SRCS =	so_long.c \
 		parsing.c \
 		initialisation_struct.c \
 		parsing2.c \
-
+		pathfinding.c \
+		libft.c \
 
 SRCS_DIR = ./srcs
 
