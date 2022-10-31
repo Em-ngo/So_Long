@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 15:36:31 by engo              #+#    #+#             */
-/*   Updated: 2022/10/27 19:04:10 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/31 19:46:05 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,10 @@ void	move_u(t_all *all, int moves)
 
 int	keybinds(int keycode, t_all *all)
 {
-	static int	moves;
-	int			i;
+	static int	moves = 0;
+	// int			i;
 
-	i = 0;
-	moves = 0;
+	// i = 0;
 	if (keycode == 'w')
 		move_u(all, moves);
 	if (keycode == 'a')
@@ -80,8 +79,8 @@ int	keybinds(int keycode, t_all *all)
 		move_d(all, moves);
 	if (keycode == 'd')
 		move_r(all, moves);
-	while (all->map[i])
-		printf("%s\n", all->map[i++]);
+	// while (all->map[i])
+	// 	printf("%s\n", all->map[i++]);
 	// ft_putnbr_fd(moves, 1);
 	// ft_putstr_fd("\n", 1);
 	collect_all(all);

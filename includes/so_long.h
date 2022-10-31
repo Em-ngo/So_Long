@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/10/31 18:55:56 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/31 19:00:32 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_error
 
 typedef struct s_path
 {
+	char	**map_tmp;
 	int		player_x;
 	int		player_y;
 	int		exit_x;
@@ -108,9 +109,9 @@ void	collect_all(t_all *all);
 int		can_exit2(t_all *all, int y, int x);
 int		can_exit(t_all *all);
 void	ft_putstr_fd(char *s, int fd);
-void	goodpath(t_path *path, char **tmp);
-void	struct_path(t_all *data, char **map_tmp);
-void	valid_path(char **tmp, int x, int y);
+void	goodpath(t_path *path);
+void	struct_path(t_all *data);
+void	valid_path(t_path *path, int x, int y);
 int		format_checker(char *str);
 void	free_map(char **map);
 char	*ft_strrchr(const char *s, int c);

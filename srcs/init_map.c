@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/10/31 17:29:12 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/31 19:52:22 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,21 @@ void	init_img(t_all *all)
 
 void	open_map(t_all *g, char **av)
 {
+	static int tamere = 0;
 	int	fd;
 	int	i;
 
 	i = 0;
-	fd = open(av[1], O_RDONLY);
-	g->map = get_next_line(fd);
-	while (g->map[i])
+	if (!tamere) {
+		fd = open(av[1], O_RDONLY);
+		g->map = get_next_line(fd);
+		tamere = 1;
+
+	}
+	while (g->map[i]) {
 		printf("%s\n", g->map[i++]);
+		// printf("map = %p\n", &(g->map[i]));
+	}
 }
 
 void	init_size_map(t_all *g)
