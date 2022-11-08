@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/10/31 19:00:32 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/08 19:11:08 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ void	collect_all(t_all *all);
 int		can_exit2(t_all *all, int y, int x);
 int		can_exit(t_all *all);
 void	ft_putstr_fd(char *s, int fd);
-void	goodpath(char **map);
-void	struct_path(char **map);
+void	goodpath(char **map, t_path *p);
+void	struct_path(char **map, t_all *g);
 void	valid_path(char **copy, int x, int y);
 int		format_checker(char *str);
 char	**copy_map(char **map);
