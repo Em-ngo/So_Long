@@ -91,6 +91,7 @@ void	struct_path(char **map, t_all *g)
     char	**copy;
     int     i;
 
+	path = malloc(sizeof(*path));
 	copy = copy_map(map);
 	path->player_x = g->data.player_x;
 	path->player_y = g->data.player_y;
