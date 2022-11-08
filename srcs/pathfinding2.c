@@ -46,13 +46,13 @@ char	**copy_map(char **map)
 void	valid_path(char **copy, int x, int y)
 {
 	copy[x][y] = 'P';
-	if (copy[x + 1][y] == 'C' || copy[x + 1][y] == '0' || copy[x + 1][y] == 'E')
+	if (copy[x + 1][y] == 'C' || copy[x + 1][y] == '0')
 		valid_path(copy, x + 1, y);
-	if (copy[x - 1][y] == 'C' || copy[x - 1][y] == '0' || copy[x - 1][y] == 'E')
+	if (copy[x - 1][y] == 'C' || copy[x - 1][y] == '0')
 		valid_path(copy, x - 1, y);
-	if (copy[x][y + 1] == 'C' || copy[x][y + 1] == '0' || copy[x][y + 1] == 'E')
+	if (copy[x][y + 1] == 'C' || copy[x][y + 1] == '0')
 		valid_path(copy, x, y + 1);
-	if (copy[x][y - 1] == 'C' || copy[x][y - 1] == '0' || copy[x][y - 1] == 'E')
+	if (copy[x][y - 1] == 'C' || copy[x][y - 1] == '0')
 		valid_path(copy, x, y - 1);
 }
 
