@@ -45,16 +45,17 @@ void	free_ptr(t_all *g)
 int	main(int ac, char **av)
 {
 	t_all	jeu;
+	t_path	path;
 	(void)ac;
 
-	init_struct(&jeu);
+	init_struct(&jeu, &path);
 	jeu.data.mlx_ptr = mlx_init();
 	open_map(&jeu, av);
 	get_pos_player(&jeu);
 	init_size_map(&jeu);
 	jeu.data.mlx_win = mlx_new_window(jeu.data.mlx_ptr, jeu.x * 50, jeu.y * 50,
 			NAME);
-	struct_path(&jeu);
+	struct_path(jeu.map);
 	init_img(&jeu);
 	// jeu.data.img = mlx_new_image(jeu.data.mlx_ptr, jeu.x, jeu.y);
 	mlx_key_hook(jeu.data.mlx_win, keybinds, &jeu);

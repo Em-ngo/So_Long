@@ -32,19 +32,8 @@
 # define FLOOR "sprites/floor.xpm"
 # define EXIT "sprites/exit.xpm"
 
-typedef struct s_error
-{
-	int		player;
-	int		collectible;
-	int		exit;
-	int		fullmap;
-	int		shape;
-	int		closed;
-}				t_error;
-
 typedef struct s_path
 {
-	char	**map_tmp;
 	int		player_x;
 	int		player_y;
 	int		exit_x;
@@ -104,15 +93,16 @@ int		all_map(t_all *all);
 void	get_pos_player(t_all *all);
 int		keybinds(int keycode, t_all *all);
 int		can_move(t_all *all);
-void	init_struct(t_all *all);
+void	init_struct(t_all *all, t_path *path);
 void	collect_all(t_all *all);
 int		can_exit2(t_all *all, int y, int x);
 int		can_exit(t_all *all);
 void	ft_putstr_fd(char *s, int fd);
-void	goodpath(t_path *path);
-void	struct_path(t_all *data);
-void	valid_path(t_path *path, int x, int y);
+void	goodpath(char **map);
+void	struct_path(char **map);
+void	valid_path(char **copy, int x, int y);
 int		format_checker(char *str);
+char	**copy_map(char **map);
 void	free_map(char **map);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);

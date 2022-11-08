@@ -11,14 +11,6 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
-# define _NC "\033[0;0m"
-# define _RED "\033[0;31m"
-# define _GREEN "\033[0;32m"
-# define _YELLOW "\033[0;33m"
-# define _BLUE "\033[0;34m"
-# define _PURPLE "\033[0;95m"
-# define _CYAN "\033[0;36m"
-# define _WHITE "\033[0;37m"
 
 void	pos_exit(t_path *path)
 {
@@ -53,14 +45,14 @@ char**	testThib(char **map)
 	tmp = malloc(sizeof(tmp) * (i + 1));
 	tmp[i] = 0;
 	i = 0;
-	if (map == tmp)
-		printf(_RED "pas bon\n"_NC);
+	// if (map == tmp)
+		// printf(_RED "pas bon\n"_NC);
 	// printf("map = %p\n", &map);
 	// printf("tmp = %p\n", &tmp);
 	while (map[i]) {
 		tmp[i] = ft_strdup((map[i]));
-		if (map[i] == tmp[i])
-			printf(_RED "pas bon\n"_NC);
+		// if (map[i] == tmp[i])
+			// printf(_RED "pas bon\n"_NC);
 		// printf("map = %p\n", &map[i]);
 		// printf("tmp = %p\n", &tmp[i]);
 		i++;
