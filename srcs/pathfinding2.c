@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-void	pos_exit(t_all *path)
+void	pos_exit(s_path *path)
 {
 	int		i;
 	int		n;
@@ -65,18 +65,18 @@ void	goodpath(char **map)
 	y = -1;
 	x = -1;
 	if (map[path.exit_y + 1][path.exit_x] != 'P' &&
-			path.map_tmp[path.exit_y - 1][path.exit_x] != 'P' &&
-			path.map_tmp[path.exit_y][path.exit_x + 1] != 'P' &&
-			path.map_tmp[path.exit_y][path.exit_x - 1] != 'P')
+			map[path.exit_y - 1][path.exit_x] != 'P' &&
+			map[path.exit_y][path.exit_x + 1] != 'P' &&
+			map[path.exit_y][path.exit_x - 1] != 'P')
 	{
 		ft_putstr_fd("Non valid path\n", 1);
 		exit (1);
 	}
-	while (path.map_tmp[++y])
+	while (map[++y])
 	{
-		while (path.map_tmp[y][++x])
+		while (map[y][++x])
 		{
-			if (path.map_tmp[y][x] == 'C')
+			if (map[y][x] == 'C')
 			{
 				ft_putstr_fd("Non valid path\n", 1);
 				exit (1);
