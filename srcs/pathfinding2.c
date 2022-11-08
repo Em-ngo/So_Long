@@ -1,20 +1,21 @@
 #include "so_long.h"
 
-void	pos_exit(s_path *path)
+void	pos_exit(t_all *all)
 {
 	int		i;
 	int		n;
+	t_path	path;
 
 	i = 0;
 	n = 0;
-	while (path->map_tmp[i++])
+	while (all->map[i++])
 	{
-		while (path->map_tmp[i][n++])
+		while (all->map[i][n++])
 		{
-			if (path->map_tmp[i][n] == 'E')
+			if (all->map[i][n] == 'E')
 			{
-				path->exit_x = n;
-				path->exit_y = i;
+				path.exit_x = n;
+				path.exit_y = i;
 				return ;
 			}
 		}
