@@ -60,7 +60,7 @@ int	main(int ac, char **av)
 	mlx_key_hook(jeu.data.mlx_win, keybinds, &jeu);
 	mlx_loop_hook(jeu.data.mlx_ptr, all_map, &jeu);
 	mlx_hook(jeu.data.mlx_win, 33, 1L << 17, &close_map, &jeu);
-	mlx_hook(g->window.win_ptr, 2, 1L << 0, &close_map, &jeu);
+	mlx_hook(jeu.window.mlx_win, 2, 1L << 0, &close_map, &jeu);
 	mlx_loop(jeu.data.mlx_ptr);
 	// free_ptr(&jeu);
 }
