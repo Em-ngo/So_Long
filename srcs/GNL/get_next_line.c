@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:10:31 by engo              #+#    #+#             */
-/*   Updated: 2022/10/24 17:10:43 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/09 17:37:15 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,23 +60,26 @@ char	*freeee(char *save)
 	return (save);
 }
 
-char	*ft_strdup(char *s)
+char	*ft_strdup(char *s1)
 {
-	char	*tab;
-	size_t	n;
+	int		i;
+	int		len;
+	char	*str;
 
-	n = 0;
-	tab = malloc(sizeof (char) * ft_strlen(s) + 1);
-	if (!tab)
-		return (0);
-	while (s[n])
+	i = 0;
+	len = ft_strlen(s1) + 1;
+	if (i - 1 == 0)
+		return (NULL);
+	str = malloc(len * sizeof(const char));
+	if (str == NULL)
+		return (NULL);
+	while (s1[i])
 	{
-		tab[n] = s[n];
-		n++;
+		str[i] = s1[i];
+		i++;
 	}
-	tab[n] = 0;
-	freeee(s);
-	return (tab);
+	str[i] = '\0';
+	return (str);
 }
 
 char	**get_next_line(int fd)

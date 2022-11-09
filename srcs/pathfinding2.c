@@ -95,7 +95,7 @@ void	struct_path(char **map, t_all *g)
     int     i;
 
 	path = malloc(sizeof(*path));
-	copy = map;
+	copy = copy_map(map);
 	path->player_x = g->data.player_x;
 	path->player_y = g->data.player_y;
 	pos_exit(map, path);
@@ -105,6 +105,9 @@ void	struct_path(char **map, t_all *g)
 	i = 0;
 	while (copy[i])
 		printf("%s\n", copy[i++]);
+	i = -1;
+	while (map[++i])
+		printf("%s\n", map[i]);
 	goodpath(map, path);
 //	exit(1);
 }
