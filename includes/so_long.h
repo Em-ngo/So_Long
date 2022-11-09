@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/11/08 19:11:08 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/08 20:56:00 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int		all_map(t_all *all);
 void	get_pos_player(t_all *all);
 int		keybinds(int keycode, t_all *all);
 int		can_move(t_all *all);
-void	init_struct(t_all *all, t_path *path);
+void	init_struct(t_all *all);
 void	collect_all(t_all *all);
 int		can_exit2(t_all *all, int y, int x);
 int		can_exit(t_all *all);

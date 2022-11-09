@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/10/31 19:52:22 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/08 20:03:50 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,19 @@ void	open_map(t_all *g, char **av)
 {
 	static int tamere = 0;
 	int	fd;
-	int	i;
-
-	i = 0;
+	//int	i;
+//
+	//i = 0;
 	if (!tamere) {
 		fd = open(av[1], O_RDONLY);
 		g->map = get_next_line(fd);
 		tamere = 1;
 
 	}
-	while (g->map[i]) {
-		printf("%s\n", g->map[i++]);
-		// printf("map = %p\n", &(g->map[i]));
-	}
+	//while (g->map[i]) {
+	//	printf("%s\n", g->map[i++]);
+	//	// printf("map = %p\n", &(g->map[i]));
+	//}
 }
 
 void	init_size_map(t_all *g)

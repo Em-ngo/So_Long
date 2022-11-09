@@ -1,23 +1,25 @@
 #include "so_long.h"
 
-void	pos_exit(t_all *all, t_path *p)
+void	pos_exit(char **map, t_path *p)
 {
 	int		i;
 	int		n;
 
 	i = 0;
 	n = 0;
-	while (all->map[i++])
+	while (map[i])
 	{
-		while (all->map[i][n++])
+		while (map[i][n])
 		{
-			if (all->map[i][n] == 'E')
+			if (map[i][n] == 'E')
 			{
 				p->exit_x = n;
 				p->exit_y = i;
 				return ;
 			}
+			n++;
 		}
+		i++;
 		n = 0;
 	}
 }
@@ -36,7 +38,7 @@ char	**copy_map(char **map)
 	while (map[x])
 	{
 		copy[x] = ft_strdup(map[x]);
-		printf("%s", copy[x]);
+		printf("%s\n", copy[x]);
 		++x;
 	}
 	copy[x] = NULL;
@@ -54,6 +56,7 @@ void	valid_path(char **copy, int x, int y)
 		valid_path(copy, x, y + 1);
 	if (copy[x][y - 1] == 'C' || copy[x][y - 1] == '0')
 		valid_path(copy, x, y - 1);
+	return ;
 }
 
 void	goodpath(char **map, t_path *p)
@@ -81,7 +84,7 @@ void	goodpath(char **map, t_path *p)
 				exit (1);
 			}
 		}
-		x = 0;
+		x = -1;
 	}
 }
 
@@ -92,13 +95,16 @@ void	struct_path(char **map, t_all *g)
     int     i;
 
 	path = malloc(sizeof(*path));
-	copy = copy_map(map);
+	copy = map;
 	path->player_x = g->data.player_x;
 	path->player_y = g->data.player_y;
-	pos_exit(g, path);
-	valid_path(copy, path->player_x, path->player_y);
+	pos_exit(map, path);
+	//printf("data %d\n", g->data._x);
+	printf("path  %d\n", path->exit_y);
+	valid_path(copy, path->player_y, path->player_x);
 	i = 0;
 	while (copy[i])
 		printf("%s\n", copy[i++]);
 	goodpath(map, path);
+//	exit(1);
 }

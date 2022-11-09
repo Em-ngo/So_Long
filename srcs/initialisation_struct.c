@@ -1,6 +1,6 @@
 #include "../includes/so_long.h"
 
-void	init_struct(t_all *all, t_path *path)
+void	init_struct(t_all *all)
 {
 
 	all->data.right = 0;
@@ -9,6 +9,4 @@ void	init_struct(t_all *all, t_path *path)
 	all->data.up = 0;
 	all->data.collectibles = 0;
 	all->win = 0;
-	path->exit_x = 0;
-	path->exit_y = 0;
 }
