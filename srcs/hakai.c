@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   hakai.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 15:12:57 by vloth             #+#    #+#             */
-/*   Updated: 2022/11/10 16:27:45 by vloth            ###   ########.fr       */
+/*   Created: 2022/11/10 15:12:57 by engo              #+#    #+#             */
+/*   Updated: 2022/11/10 16:27:45 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "../minilibx-linux/mlx.h"
 
 void	hakai_img(t_all *g)
 {
