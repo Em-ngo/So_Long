@@ -48,7 +48,7 @@ int	check_args(int ac, char **av)
 	}
 	else if (ac > 2)
 	{
-		ft_putstr_fd("Error, too many arguments.\n", 2)
+		ft_putstr_fd("Error, too many arguments.\n", 2);
 		exit (1);
 	}
 	else
