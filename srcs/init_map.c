@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/11/08 20:03:50 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/10 16:05:17 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,13 @@ void	open_map(t_all *g, char **av)
 {
 	static int tamere = 0;
 	int	fd;
-	//int	i;
-//
-	//i = 0;
+
 	if (!tamere) {
 		fd = open(av[1], O_RDONLY);
 		g->map = get_next_line(fd);
 		tamere = 1;
-
+		close(fd);
 	}
-	//while (g->map[i]) {
-	//	printf("%s\n", g->map[i++]);
-	//	// printf("map = %p\n", &(g->map[i]));
-	//}
 }
 
 void	init_size_map(t_all *g)

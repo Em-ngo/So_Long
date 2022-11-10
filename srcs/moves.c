@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 15:36:31 by engo              #+#    #+#             */
-/*   Updated: 2022/10/31 19:46:05 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/10 16:17:13 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,21 +68,15 @@ void	move_u(t_all *all, int moves)
 int	keybinds(int keycode, t_all *all)
 {
 	static int	moves = 0;
-	// int			i;
 
-	// i = 0;
-	if (keycode == 'w')
+	if (keycode == 'z')
 		move_u(all, moves);
-	if (keycode == 'a')
+	if (keycode == 'q')
 		move_l(all, moves);
 	if (keycode == 's')
 		move_d(all, moves);
 	if (keycode == 'd')
 		move_r(all, moves);
-	// while (all->map[i])
-	// 	printf("%s\n", all->map[i++]);
-	// ft_putnbr_fd(moves, 1);
-	// ft_putstr_fd("\n", 1);
 	collect_all(all);
 	return (0);
 }

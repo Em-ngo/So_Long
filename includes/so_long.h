@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/11/08 20:56:00 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/10 16:01:49 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,14 @@ typedef struct s_all
 	int		x;
 	int		y;
 	int		win;
+	t_data	window;
+	t_data	img;
 	t_data	data;
 	t_img	image[5];
 }				t_all;
 
+void	freedom(char **map);
+void	hakai_img(t_all *g);
 void	open_map(t_all *g, char **av);
 void	free_ptr(t_all *g);
 char	**ft_split(char const *s, char c);

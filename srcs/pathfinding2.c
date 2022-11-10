@@ -38,7 +38,6 @@ char	**copy_map(char **map)
 	while (map[x])
 	{
 		copy[x] = ft_strdup(map[x]);
-		printf("%s\n", copy[x]);
 		++x;
 	}
 	copy[x] = NULL;
@@ -92,21 +91,14 @@ void	struct_path(char **map, t_all *g)
 {
 	t_path	*path;
     char	**copy;
-    int     i;
 
 	path = malloc(sizeof(*path));
 	copy = copy_map(map);
 	path->player_x = g->data.player_x;
 	path->player_y = g->data.player_y;
 	pos_exit(map, path);
-	printf("data %d\n", path->exit_x);
-	printf("path  %d\n", path->exit_y);
 	valid_path(copy, path->player_y, path->player_x);
-	i = 0;
-	while (copy[i])
-		printf("%s\n", copy[i++]);
-	i = -1;
-	while (map[++i])
-		printf("%s\n", map[i]);
 	goodpath(copy, path);
+	free(path);
+	freedom(copy);
 }
