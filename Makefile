@@ -20,7 +20,7 @@ SRCS =	so_long.c \
 		parsing2.c \
 		pathfinding2.c \
 		libft.c \
-		hakai.c \
+		free.c \
 
 SRCS_DIR = ./srcs
 

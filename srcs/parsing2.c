@@ -39,3 +39,25 @@ int	format_checker(char *str)
 	return (0);
 }
 
+int	check_args(int ac, char **av)
+{
+	if (ac < 2)
+	{
+		ft_putstr_fd("Error, a map is needed.\n", 2);
+		exit (1);
+	}
+	else if (ac > 2)
+	{
+		ft_putstr_fd("Error, too many arguments.\n", 2)
+		exit (1);
+	}
+	else
+	{
+		if (format_checker(av[1]) == 1)
+		{
+			ft_putstr_fd("Error, a file extension .ber is needed.\n", 2);
+			exit (1);
+		}
+	}
+	return (0);
+}

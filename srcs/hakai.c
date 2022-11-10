@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	hakai_img(t_all *g)
+void	free_img(t_all *g)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ void	hakai_img(t_all *g)
 	free(g->data.mlx_ptr);
 }
 
-void	freedom(char **map)
+void	free_map(char **map)
 {
 	int	i;
 

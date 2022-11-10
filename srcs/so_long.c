@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 13:34:52 by engo              #+#    #+#             */
-/*   Updated: 2022/11/10 15:38:41 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/10 15:38:41 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,26 @@ int	close_win(t_all *d)
 int	main(int ac, char **av)
 {
 	t_all	jeu;
-	(void)ac;
 
-	init_struct(&jeu);
-	jeu.data.mlx_ptr = mlx_init();
-	open_map(&jeu, av);
-	get_pos_player(&jeu);
-	init_size_map(&jeu);
-	struct_path(jeu.map, &jeu);
-	jeu.data.mlx_win = mlx_new_window(jeu.data.mlx_ptr, jeu.x * 50, jeu.y * 50,
-			NAME);
-	init_img(&jeu);
-	mlx_key_hook(jeu.data.mlx_win, keybinds, &jeu);
-	mlx_loop_hook(jeu.data.mlx_ptr, all_map, &jeu);
-	mlx_hook(jeu.data.mlx_win, 33, 1L << 17, &close_win, &jeu);
-	mlx_hook(jeu.data.mlx_win, 2, 1L << 0, &close_map, &jeu);
-	mlx_loop(jeu.data.mlx_ptr);
-	hakai_img(&jeu);
+	if (check_args(ac, av) == 1)
+		exit (1);
+	if (ac == 2)
+	{
+		init_struct(&jeu);
+		jeu.data.mlx_ptr = mlx_init();
+		open_map(&jeu, av);
+		get_pos_player(&jeu);
+		init_size_map(&jeu);
+		struct_path(jeu.map, &jeu);
+		jeu.data.mlx_win = mlx_new_window(jeu.data.mlx_ptr, jeu.x * 50, jeu.y * 50,
+				NAME);
+		init_img(&jeu);
+		mlx_key_hook(jeu.data.mlx_win, keybinds, &jeu);
+		mlx_loop_hook(jeu.data.mlx_ptr, all_map, &jeu);
+		mlx_hook(jeu.data.mlx_win, 33, 1L << 17, &close_win, &jeu);
+		mlx_hook(jeu.data.mlx_win, 2, 1L << 0, &close_map, &jeu);
+		mlx_loop(jeu.data.mlx_ptr);
+	}
+	free_img(&jeu);
+	return (0);
 }

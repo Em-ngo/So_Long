@@ -100,5 +100,5 @@ void	struct_path(char **map, t_all *g)
 	valid_path(copy, path->player_y, path->player_x);
 	goodpath(copy, path);
 	free(path);
-	freedom(copy);
+	free_map(copy);
 }

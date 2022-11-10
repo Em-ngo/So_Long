@@ -81,8 +81,8 @@ typedef struct s_all
 	t_img	image[5];
 }				t_all;
 
-void	freedom(char **map);
-void	hakai_img(t_all *g);
+void	free_map(char **map);
+void	free_img(t_all *g);
 void	open_map(t_all *g, char **av);
 void	free_ptr(t_all *g);
 char	**ft_split(char const *s, char c);
@@ -109,5 +109,6 @@ void	free_map(char **map);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(char *s1);
+int		check_args(int ac, char **av);
 
 #endif
