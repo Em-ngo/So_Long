@@ -75,8 +75,6 @@ typedef struct s_all
 	int		x;
 	int		y;
 	int		win;
-	t_data	window;
-	t_data	img;
 	t_data	data;
 	t_img	image[5];
 }				t_all;
