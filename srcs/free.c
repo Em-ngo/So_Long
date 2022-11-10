@@ -25,7 +25,7 @@ void    destruction(t_all *all)
     mlx_destroy_image(all->data.mlx_ptr, all->image[4].img);
 }
 
-void    hakai(t_all *all)
+void    free_all(t_all *all)
 {
     free_map(all->map);
     destruction(all);

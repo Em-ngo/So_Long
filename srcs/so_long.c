@@ -19,13 +19,6 @@ int	close_map(t_all *g)
 	exit(0);
 }
 
-// static void	free_image(t_all *g)
-// {
-	// mlx_destroy_image(g->mlx_ptr, g->img);
-	// g->img = NULL;
-	// g->window.img.adr = NULL;
-// }
-
 void	free_ptr(t_all *g)
 {
 	if (g->data.mlx_ptr)
