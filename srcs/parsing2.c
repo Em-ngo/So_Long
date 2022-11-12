@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:00:31 by engo              #+#    #+#             */
-/*   Updated: 2022/10/31 17:30:15 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/12 23:23:08 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	format_checker(char *str)
 {	
 	if (!ft_strncmp(ft_strrchr(str, '.'), ".ber", 5))
 		return (1);
-	ft_putstr_fd("Format of the map non valid", 1);
+	ft_putstr_fd("Format of the map non valid", 2);
 	return (0);
 }
 
@@ -53,9 +53,9 @@ int	check_args(int ac, char **av)
 	}
 	else
 	{
-		if (format_checker(av[1]) == 1)
+		if (format_checker(av[1]) == 0)
 		{
-			ft_putstr_fd("Error, a file extension .ber is needed.\n", 2);
+			ft_putstr_fd(" Error, a file extension .ber is needed.\n", 2);
 			exit (1);
 		}
 	}

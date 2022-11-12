@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/11/10 16:01:49 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/12 23:04:55 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct s_all
 	int		x;
 	int		y;
 	int		win;
+	int		moves;
 	t_data	window;
 	t_data	img;
 	t_data	data;

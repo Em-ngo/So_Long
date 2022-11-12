@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/11/10 16:05:17 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/12 22:59:12 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,11 @@ void	init_img(t_all *all)
 
 void	open_map(t_all *g, char **av)
 {
-	static int tamere = 0;
 	int	fd;
 
-	if (!tamere) {
-		fd = open(av[1], O_RDONLY);
-		g->map = get_next_line(fd);
-		tamere = 1;
-		close(fd);
-	}
+	fd = open(av[1], O_RDONLY);
+	g->map = get_next_line(fd);
+	close(fd);
 }
 
 void	init_size_map(t_all *g)

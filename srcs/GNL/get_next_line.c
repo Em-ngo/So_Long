@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:10:31 by engo              #+#    #+#             */
-/*   Updated: 2022/11/10 16:15:52 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/12 23:57:29 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ char	**get_next_line(int fd)
 	char		buff[BUFFER_SIZE + 1];
 	int			ret;
 	char		*line;
+	char		**final;
 
 	ret = 1;
 	if (fd > 1024 || fd < 0 || BUFFER_SIZE < 0 || ret < 0)
@@ -101,5 +102,7 @@ char	**get_next_line(int fd)
 		save = ft_strjoin(save, buff);
 	}
 	line = ft_strdup(save);
-	return (ft_split(line, '\n'));
+	final = ft_split(line, '\n');
+	free(line);
+	return (final);
 }

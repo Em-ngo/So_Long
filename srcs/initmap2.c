@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initmap2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 19:01:33 by engo              #+#    #+#             */
-/*   Updated: 2022/10/27 19:15:36 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/13 00:00:49 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int	all_map(t_all *all)
 	i = -1;
 	y = 0;
 	if (all->win == 1)
+	{
 		mlx_loop_end(all->data.mlx_ptr);
+		printf("Gagné en %d coups\n", all->moves);
+	}
 	while (all->map[++i])
 	{
 		x = 0;
