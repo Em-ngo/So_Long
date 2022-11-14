@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 13:34:52 by engo              #+#    #+#             */
-/*   Updated: 2022/11/12 23:04:15 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/14 10:17:03 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minilibx-linux/mlx.h"
 #include "so_long.h"
 
 int	close_map(int keysym, t_all *g)
@@ -40,8 +39,8 @@ int	main(int ac, char **av)
 		get_pos_player(&jeu);
 		init_size_map(&jeu);
 		struct_path(jeu.map, &jeu);
-		jeu.data.mlx_win = mlx_new_window(jeu.data.mlx_ptr, jeu.x * 50, jeu.y * 50,
-				NAME);
+		jeu.data.mlx_win = mlx_new_window(jeu.data.mlx_ptr, jeu.x * 50,
+				jeu.y * 50, NAME);
 		init_img(&jeu);
 		mlx_key_hook(jeu.data.mlx_win, keybinds, &jeu);
 		mlx_loop_hook(jeu.data.mlx_ptr, all_map, &jeu);

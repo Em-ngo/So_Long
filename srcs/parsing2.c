@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:00:31 by engo              #+#    #+#             */
-/*   Updated: 2022/11/12 23:23:08 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/14 10:33:02 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	check_args(int ac, char **av)
 	{
 		if (format_checker(av[1]) == 0)
 		{
-			ft_putstr_fd(" Error, a file extension .ber is needed.\n", 2);
+			ft_putstr_fd("Error, a file extension .ber is needed.\n", 2);
 			exit (1);
 		}
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/11/12 23:04:55 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/14 10:31:21 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <sys/types.h>
 # include <unistd.h>
 # include "../minilibx-linux/mlx.h"
+# include "ft_printf.h"
 
 # define NAME "So_Long"
 # define WALL "sprites/wall.xpm"

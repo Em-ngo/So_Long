@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pathfinding2.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/14 10:15:25 by engo              #+#    #+#             */
+/*   Updated: 2022/11/14 10:19:20 by engo             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	pos_exit(char **map, t_path *p)
@@ -90,7 +102,7 @@ void	goodpath(char **map, t_path *p)
 void	struct_path(char **map, t_all *g)
 {
 	t_path	*path;
-    char	**copy;
+	char	**copy;
 
 	path = malloc(sizeof(*path));
 	copy = copy_map(map);

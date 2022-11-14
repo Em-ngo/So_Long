@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 15:36:31 by engo              #+#    #+#             */
-/*   Updated: 2022/11/12 23:08:45 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/14 10:31:42 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	move_r(t_all *all)
 		all->data.player_x++;
 		all->map[all->data.player_y][all->data.player_x] = 'P';
 		all->moves++;
-		printf("Cest votre %de pas\n", all->moves);
+		ft_printf("%d moves\n", all->moves);
 	}
 	all->data.right = 0;
 }
@@ -35,7 +35,7 @@ void	move_d(t_all *all)
 		all->data.player_y++;
 		all->map[all->data.player_y][all->data.player_x] = 'P';
 		all->moves++;
-		printf("Cest votre %de pas\n", all->moves);
+		ft_printf("%d moves\n", all->moves);
 	}
 	all->data.down = 0;
 }
@@ -49,11 +49,10 @@ void	move_l(t_all *all)
 		all->data.player_x--;
 		all->map[all->data.player_y][all->data.player_x] = 'P';
 		all->moves++;
-		printf("Cest votre %de pas\n", all->moves);
+		ft_printf("%d moves\n", all->moves);
 	}
 	all->data.left = 0;
 }
-
 
 void	move_u(t_all *all)
 {
@@ -64,7 +63,7 @@ void	move_u(t_all *all)
 		all->data.player_y--;
 		all->map[all->data.player_y][all->data.player_x] = 'P';
 		all->moves++;
-		printf("Cest votre %de pas\n", all->moves);
+		ft_printf("%d moves\n", all->moves);
 	}
 	all->data.up = 0;
 }

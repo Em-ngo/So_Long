@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/11/12 22:59:12 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/14 10:14:00 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "../minilibx-linux/mlx.h"
 
 void	put_img_on_window_2(t_all *all, int x_pos, int y_pos, char c)
 {
