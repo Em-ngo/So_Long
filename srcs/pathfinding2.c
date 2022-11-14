@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 10:15:25 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 10:19:20 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/14 18:00:00 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	valid_path(char **copy, int x, int y)
 	return ;
 }
 
-void	goodpath(char **map, t_path *p)
+void	goodpath(char **map, t_path *p, t_all *all)
 {
 	int	y;
 	int	x;
@@ -81,19 +81,13 @@ void	goodpath(char **map, t_path *p)
 			map[p->exit_y - 1][p->exit_x] != 'P' &&
 			map[p->exit_y][p->exit_x + 1] != 'P' &&
 			map[p->exit_y][p->exit_x - 1] != 'P')
-	{
-		ft_putstr_fd("Non valid path\n", 1);
-		exit (1);
-	}
+		free_pathfinding(all, p, map);
 	while (map[++y])
 	{
 		while (map[y][++x])
 		{
 			if (map[y][x] == 'C')
-			{
-				ft_putstr_fd("Non valid path\n", 1);
-				exit (1);
-			}
+				free_pathfinding(all, p, map);
 		}
 		x = -1;
 	}
@@ -110,7 +104,7 @@ void	struct_path(char **map, t_all *g)
 	path->player_y = g->data.player_y;
 	pos_exit(map, path);
 	valid_path(copy, path->player_y, path->player_x);
-	goodpath(copy, path);
+	goodpath(copy, path, g);
 	free(path);
 	free_map(copy);
 }

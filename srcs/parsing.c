@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 15:58:01 by engo              #+#    #+#             */
-/*   Updated: 2022/10/27 19:26:39 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/14 16:41:28 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,18 +102,19 @@ void	get_pos_player(t_all *all)
 	int	j;
 
 	i = -1;
-	j = -1;
 	while (all->map[++i])
 	{
+		j = -1;
 		while (all->map[i][++j])
 		{
 			if (all->map[i][j] == 'P')
 			{
+				all->player++;
 				all->data.player_y = i;
 				all->data.player_x = j;
-				return ;
 			}
+			if (all->map[i][j] == 'E')
+				all->exit++;
 		}
-		j = 0;
 	}
 }

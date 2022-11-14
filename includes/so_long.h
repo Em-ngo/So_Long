@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 11:36:03 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/14 18:03:01 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,18 +83,20 @@ typedef struct s_all
 	int		y;
 	int		win;
 	int		moves;
-	t_data	window;
-	t_data	img;
+	int		player;
+	int		exit;
 	t_data	data;
 	t_img	image[5];
 }				t_all;
 
 void	free_map(char **map);
 void	free_img(t_all *g);
-void	open_map(t_all *g, char **av);
 void	free_ptr(t_all *g);
+
 char	**ft_split(char const *s, char c);
 size_t	ft_strlen(char *str);
+
+void	open_map(t_all *g, char **av);
 char	**get_next_line(int fd);
 void	init_size_map(t_all *g);
 void	init_img(t_all *all);
@@ -108,7 +110,7 @@ void	collect_all(t_all *all);
 int		can_exit2(t_all *all, int y, int x);
 int		can_exit(t_all *all);
 void	ft_putstr_fd(char *s, int fd);
-void	goodpath(char **map, t_path *p);
+void	goodpath(char **map, t_path *p, t_all *all);
 void	struct_path(char **map, t_all *g);
 void	valid_path(char **copy, int x, int y);
 int		format_checker(char *str);
@@ -118,5 +120,9 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(char *s1);
 int		check_args(int ac, char **av);
+void	free_all(t_all *all, t_path *p, char **map);
+void	free_pathfinding(t_all *all, t_path *p, char **map);
+int		check_assets(char *path);
+void	ft_check_assets(t_all *all);
 
 #endif

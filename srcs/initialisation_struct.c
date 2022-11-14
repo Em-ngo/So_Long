@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 10:14:48 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 10:19:43 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/14 16:38:11 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,6 @@ void	init_struct(t_all *all)
 	all->data.collectibles = 0;
 	all->win = 0;
 	all->moves = 0;
+	all->player = 0;
+	all->exit = 0;
 }

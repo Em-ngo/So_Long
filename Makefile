@@ -2,7 +2,7 @@ CC = gcc
 
 PATH_MLX = ./minilibx-linux/
 
-CFLAGS = -D BUFFER_SIZE=1000 -Wall -Wextra -Werror
+CFLAGS = -D BUFFER_SIZE=40 -Wall -Wextra -Werror
 
 NAME =	so_long
 

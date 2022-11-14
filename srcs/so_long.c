@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 13:34:52 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 14:15:08 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/14 18:07:07 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,34 @@ int	close_win(t_all *d)
 	return (0);
 }
 
+static void	begin_parse_error(t_all *jeu)
+{
+	get_pos_player(jeu);
+	if (jeu->player > 1 || jeu->player == 0)
+		ft_putstr_fd("Error, invalid number of player.\n", 2);
+	if (jeu->exit > 1 || jeu->exit == 0)
+		ft_putstr_fd("Error, invalid number of exit.\n", 2);
+	if (jeu->exit > 1 || jeu->exit == 0 || jeu->player > 1 || jeu->player == 0)
+	{
+		free_map(jeu->map);
+		mlx_destroy_display(jeu->data.mlx_ptr);
+		free(jeu->data.mlx_ptr);
+		exit (1);
+	}
+}
+
+void	size_window_limit(t_all *all)
+{
+	if (all->x * 50 > 1920 || all->y * 50 > 1080)
+	{
+		ft_putstr_fd("The window of the game is too big.\n", 2);
+		mlx_destroy_display(all->data.mlx_ptr);
+		free(all->data.mlx_ptr);
+		free_map(all->map);
+		exit (1);
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_all	jeu;
@@ -36,8 +64,10 @@ int	main(int ac, char **av)
 		init_struct(&jeu);
 		jeu.data.mlx_ptr = mlx_init();
 		open_map(&jeu, av);
-		get_pos_player(&jeu);
+		size_window_limit(&jeu);
 		init_size_map(&jeu);
+		begin_parse_error(&jeu);
+		ft_check_assets(&jeu);
 		struct_path(jeu.map, &jeu);
 		jeu.data.mlx_win = mlx_new_window(jeu.data.mlx_ptr, jeu.x * 50,
 				jeu.y * 50, NAME);

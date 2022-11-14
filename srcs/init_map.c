@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 11:53:53 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/14 17:21:15 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,22 @@ void	open_map(t_all *g, char **av)
 	int	fd;
 
 	fd = open(av[1], O_RDONLY);
+	if (fd == -1)
+	{
+		ft_putstr_fd("Map not found.\n", 2);
+		mlx_destroy_display(g->data.mlx_ptr);
+		free(g->data.mlx_ptr);
+		exit (1);
+	}
 	g->map = get_next_line(fd);
+	if (g->map == NULL)
+	{	
+		ft_putstr_fd("Error.\n", 2);
+		free_map(g->map);
+		mlx_destroy_display(g->data.mlx_ptr);
+		free(g->data.mlx_ptr);
+		exit (1);
+	}
 	close(fd);
 }
 
@@ -77,4 +92,12 @@ void	init_size_map(t_all *g)
 	}
 	g->y = i;
 	collect_all(g);
+	if (g->data.collectibles == 0)
+	{
+		ft_putstr_fd("No collectibles found.\n", 2);
+		free_map(g->map);
+		mlx_destroy_display(g->data.mlx_ptr);
+		free(g->data.mlx_ptr);
+		exit (1);
+	}
 }

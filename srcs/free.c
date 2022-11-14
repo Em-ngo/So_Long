@@ -6,11 +6,27 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:12:57 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 10:20:02 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/14 17:08:53 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	free_pathfinding(t_all *all, t_path *p, char **map)
+{
+	ft_putstr_fd("Non valid path\n", 2);
+	mlx_destroy_display(all->data.mlx_ptr);
+	free_all(all, p, map);
+	exit (1);
+}
+
+void	free_all(t_all *all, t_path *p, char **map)
+{
+	free(all->data.mlx_ptr);
+	free_map(map);
+	free_map(all->map);
+	free(p);
+}
 
 void	free_img(t_all *g)
 {
