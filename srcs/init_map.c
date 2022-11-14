@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 10:14:00 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/14 11:53:53 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,10 @@ void	init_size_map(t_all *g)
 	while (g->map[i])
 	{	
 		if (ft_strlen(g->map[0]) != ft_strlen(g->map[i]))
+		{
+			ft_putstr_fd("Error, map is not rectangular.\n", 2);
 			exit (1);
+		}
 		i++;
 	}
 	g->y = i;
