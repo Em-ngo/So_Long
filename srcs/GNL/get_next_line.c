@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:10:31 by engo              #+#    #+#             */
-/*   Updated: 2022/11/12 23:57:29 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/14 11:35:23 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ char	*ft_strdup(char *s1)
 
 char	**get_next_line(int fd)
 {
-	static char	*save;
-	char		buff[BUFFER_SIZE + 1];
-	int			ret;
-	char		*line;
-	char		**final;
+	static t_gnl		g;
+	char				buff[BUFFER_SIZE + 1];
+	char				*line;
+	char				**final;
+	int					ret;
 
 	ret = 1;
 	if (fd > 1024 || fd < 0 || BUFFER_SIZE < 0 || ret < 0)
@@ -99,10 +99,12 @@ char	**get_next_line(int fd)
 		buff[ret] = 0;
 		if (ret < 0)
 			return (NULL);
-		save = ft_strjoin(save, buff);
+		g.tmp = ft_strjoin(g.save, buff);
+		g.save = g.tmp;
 	}
-	line = ft_strdup(save);
+	line = ft_strdup(g.save);
 	final = ft_split(line, '\n');
+	free(g.tmp);
 	free(line);
 	return (final);
 }

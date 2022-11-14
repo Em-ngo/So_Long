@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 10:31:21 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/14 11:36:03 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@
 # define COLLECT "sprites/collect.xpm"
 # define FLOOR "sprites/floor.xpm"
 # define EXIT "sprites/exit.xpm"
+
+typedef struct s_gnl
+{
+	char	*save;
+	char	*tmp;
+}				t_gnl;
 
 typedef struct s_path
 {

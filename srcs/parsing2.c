@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:00:31 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 10:33:02 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/14 11:39:57 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	format_checker(char *str)
 {	
 	if (!ft_strncmp(ft_strrchr(str, '.'), ".ber", 5))
 		return (1);
-	ft_putstr_fd("Format of the map non valid", 2);
+	printf("test\n");
+	ft_putstr_fd("Format of the map non valid\n", 2);
 	return (0);
 }
 
