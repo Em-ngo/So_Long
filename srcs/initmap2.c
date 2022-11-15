@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initmap2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 19:01:33 by engo              #+#    #+#             */
-/*   Updated: 2022/11/15 10:34:31 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/15 13:54:48 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,27 @@ int	all_map(t_all *all)
 		y += 50;
 	}
 	return (0);
+}
+
+void	check_character(t_all *all)
+{
+	int i;
+	int n;
+
+	i = -1;
+	n = -1;
+	while (all->map[++i])
+	{
+		while(all->map[i][++n])
+		{
+			if(all->map[i][n] != '0' && all->map[i][n] != 'E' && all->map[i][n] != 'P' &&
+				all->map[i][n] != '1' && all->map[i][n] != 'C')
+			{
+				ft_putstr_fd("Error, no valid map\n", 2);
+				free_free(all);
+				exit (1);
+			}
+		}
+		n = -1;
+	}
 }

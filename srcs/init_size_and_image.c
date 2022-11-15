@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_size_and_image.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/11/15 12:07:38 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/15 13:49:11 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	open_map(t_all *g, char **av)
 		exit (1);
 	}
 	close(fd);
+	check_character(g);
 }
 
 void	init_size_map(t_all *g)

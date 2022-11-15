@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/11/15 12:08:05 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/15 13:46:39 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,5 +125,6 @@ void	free_pathfinding(t_all *all, t_path *p, char **map);
 int		check_assets(char *path);
 void	ft_check_assets(t_all *all);
 void	free_free(t_all *all);
+void	check_character(t_all *all);
 
 #endif
