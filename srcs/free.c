@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:12:57 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 17:08:53 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/15 12:08:29 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ void	free_pathfinding(t_all *all, t_path *p, char **map)
 	mlx_destroy_display(all->data.mlx_ptr);
 	free_all(all, p, map);
 	exit (1);
+}
+
+void	free_free(t_all *g)
+{
+	free_map(g->map);
+	mlx_destroy_display(g->data.mlx_ptr);
+	free(g->data.mlx_ptr);
 }
 
 void	free_all(t_all *all, t_path *p, char **map)

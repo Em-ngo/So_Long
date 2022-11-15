@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/11/15 10:53:08 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/15 12:07:38 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,8 @@ void	open_map(t_all *g, char **av)
 	g->map = get_next_line(fd);
 	if (g->map == NULL)
 	{	
-		ft_putstr_fd("Error, this is a file.\n", 2);
-		free_map(g->map);
-		mlx_destroy_display(g->data.mlx_ptr);
-		free(g->data.mlx_ptr);
+		ft_putstr_fd("Error, this is a not file.\n", 2);
+		free_free(g);
 		exit (1);
 	}
 	close(fd);
@@ -86,6 +84,7 @@ void	init_size_map(t_all *g)
 		if (ft_strlen(g->map[0]) != ft_strlen(g->map[i]))
 		{
 			ft_putstr_fd("Error, map is not rectangular.\n", 2);
+			free_free(g);
 			exit (1);
 		}
 		i++;
@@ -95,9 +94,7 @@ void	init_size_map(t_all *g)
 	if (g->data.collectibles == 0)
 	{
 		ft_putstr_fd("No collectibles found.\n", 2);
-		free_map(g->map);
-		mlx_destroy_display(g->data.mlx_ptr);
-		free(g->data.mlx_ptr);
+		free_free(g);
 		exit (1);
 	}
 }

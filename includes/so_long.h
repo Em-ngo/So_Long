@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 18:03:01 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/15 12:08:05 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,6 @@ void	free_all(t_all *all, t_path *p, char **map);
 void	free_pathfinding(t_all *all, t_path *p, char **map);
 int		check_assets(char *path);
 void	ft_check_assets(t_all *all);
+void	free_free(t_all *all);
 
 #endif
