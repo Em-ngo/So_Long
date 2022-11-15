@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_map.c                                         :+:      :+:    :+:   */
+/*   init_size_and_image.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 17:21:15 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/15 10:53:08 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	open_map(t_all *g, char **av)
 	g->map = get_next_line(fd);
 	if (g->map == NULL)
 	{	
-		ft_putstr_fd("Error.\n", 2);
+		ft_putstr_fd("Error, this is a file.\n", 2);
 		free_map(g->map);
 		mlx_destroy_display(g->data.mlx_ptr);
 		free(g->data.mlx_ptr);

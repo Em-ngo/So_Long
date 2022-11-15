@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 13:34:52 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 18:07:07 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/15 10:41:12 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int	main(int ac, char **av)
 		init_struct(&jeu);
 		jeu.data.mlx_ptr = mlx_init();
 		open_map(&jeu, av);
-		size_window_limit(&jeu);
 		init_size_map(&jeu);
+		size_window_limit(&jeu);
 		begin_parse_error(&jeu);
 		ft_check_assets(&jeu);
 		struct_path(jeu.map, &jeu);

@@ -10,9 +10,8 @@ DIR_INC = -I ./includes/
 
 SRCS =	so_long.c \
 		GNL/get_next_line.c \
-		init_map.c \
+		init_size_and_image.c \
 		ft_split.c \
-		ft_strlen.c \
 		initmap2.c \
 		moves.c \
 		parsing.c \

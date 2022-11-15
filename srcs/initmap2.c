@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 19:01:33 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 10:30:33 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/15 10:34:31 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	all_map(t_all *all)
 	if (all->win == 1)
 	{
 		mlx_loop_end(all->data.mlx_ptr);
-		ft_printf("Won in %d moves\n", all->moves);
+		ft_printf("Won in %d moves.\n", all->moves);
 	}
 	while (all->map[++i])
 	{
