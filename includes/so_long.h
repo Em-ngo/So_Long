@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/11/15 13:46:39 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/15 18:29:33 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,6 @@ int		check_assets(char *path);
 void	ft_check_assets(t_all *all);
 void	free_free(t_all *all);
 void	check_character(t_all *all);
+void	ultime_verif(char *line);
 
 #endif

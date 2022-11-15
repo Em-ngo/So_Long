@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:10:31 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 15:15:49 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/15 18:30:57 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ char	**get_next_line(int fd)
 		g.save = g.tmp;
 	}
 	line = ft_strdup(g.save);
+	ultime_verif(line);
 	final = ft_split(line, '\n');
 	free(g.tmp);
 	free(line);

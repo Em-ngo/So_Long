@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:13:21 by engo              #+#    #+#             */
-/*   Updated: 2022/11/14 10:19:36 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/15 18:30:17 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,20 @@ char	**ft_split(char const *s, char c)
 	}
 	dest[i] = 0;
 	return (dest);
+}
+
+void	ultime_verif(char *line)
+{
+	int i;
+
+	i = -1;
+	while(line[++i])
+	{
+		if(line[i] == '\n' && line[i + 1] == '\n')
+		{
+			free(line);
+			ft_putstr_fd("Error map\n", 2);
+			exit(1);
+		}
+	}
 }
