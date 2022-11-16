@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_size_and_image.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/11/15 13:49:11 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/16 12:41:12 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	open_map(t_all *g, char **av)
 		free(g->data.mlx_ptr);
 		exit (1);
 	}
-	g->map = get_next_line(fd);
+	g->map = get_next_line(fd, g);
 	if (g->map == NULL)
 	{	
 		ft_putstr_fd("Error, this is a not file.\n", 2);
@@ -84,7 +84,7 @@ void	init_size_map(t_all *g)
 	{	
 		if (ft_strlen(g->map[0]) != ft_strlen(g->map[i]))
 		{
-			ft_putstr_fd("Error, map is not rectangular.\n", 2);
+			ft_putstr_fd("Error, the map is not rectangular.\n", 2);
 			free_free(g);
 			exit (1);
 		}

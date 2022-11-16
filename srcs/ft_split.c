@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:13:21 by engo              #+#    #+#             */
-/*   Updated: 2022/11/15 18:30:17 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/16 12:48:19 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,18 +90,23 @@ char	**ft_split(char const *s, char c)
 	return (dest);
 }
 
-void	ultime_verif(char *line)
+int	check_double_n(char *line, t_all *all, t_gnl *g)
 {
-	int i;
+	int		i;
 
 	i = -1;
-	while(line[++i])
+	while (line[++i])
 	{
-		if(line[i] == '\n' && line[i + 1] == '\n')
+		if (line[i] == '\n' && line[i + 1] == '\n')
 		{
+			ft_putstr_fd("Error map.\n", 2);
+			free(g->tmp);
 			free(line);
-			ft_putstr_fd("Error map\n", 2);
-			exit(1);
+			mlx_destroy_display(all->data.mlx_ptr);
+			free(all->data.mlx_ptr);
+			exit (9);
+			return (1);
 		}
 	}
+	return (0);
 }

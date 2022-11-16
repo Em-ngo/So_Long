@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initmap2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 19:01:33 by engo              #+#    #+#             */
-/*   Updated: 2022/11/15 13:54:48 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/16 12:51:14 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,20 @@ int	all_map(t_all *all)
 
 void	check_character(t_all *all)
 {
-	int i;
-	int n;
+	int		i;
+	int		n;
 
 	i = -1;
 	n = -1;
 	while (all->map[++i])
 	{
-		while(all->map[i][++n])
+		while (all->map[i][++n])
 		{
-			if(all->map[i][n] != '0' && all->map[i][n] != 'E' && all->map[i][n] != 'P' &&
-				all->map[i][n] != '1' && all->map[i][n] != 'C')
+			if (all->map[i][n] != '0' && all->map[i][n] != 'E'
+				&& all->map[i][n] != 'P' && all->map[i][n] != '1'
+				&& all->map[i][n] != 'C')
 			{
-				ft_putstr_fd("Error, no valid map\n", 2);
+				ft_putstr_fd("Error, the map is not valid.\n", 2);
 				free_free(all);
 				exit (1);
 			}

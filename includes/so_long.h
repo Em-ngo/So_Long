@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/11/15 18:29:33 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/16 12:47:27 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,6 @@
 # define FLOOR "sprites/floor.xpm"
 # define EXIT "sprites/exit.xpm"
 
-typedef struct s_gnl
-{
-	char	*save;
-	char	*tmp;
-}				t_gnl;
 
 typedef struct s_path
 {
@@ -89,6 +84,12 @@ typedef struct s_all
 	t_img	image[5];
 }				t_all;
 
+typedef struct s_gnl
+{
+	char	*save;
+	char	*tmp;
+}				t_gnl;
+
 void	free_map(char **map);
 void	free_img(t_all *g);
 void	free_ptr(t_all *g);
@@ -97,7 +98,7 @@ char	**ft_split(char const *s, char c);
 size_t	ft_strlen(char *str);
 
 void	open_map(t_all *g, char **av);
-char	**get_next_line(int fd);
+char	**get_next_line(int fd, t_all *all);
 void	init_size_map(t_all *g);
 void	init_img(t_all *all);
 void	put_img_on_window(t_all *all, int x_pos, int y_pos, char c);
@@ -126,6 +127,6 @@ int		check_assets(char *path);
 void	ft_check_assets(t_all *all);
 void	free_free(t_all *all);
 void	check_character(t_all *all);
-void	ultime_verif(char *line);
+int		check_double_n(char *line, t_all *all, t_gnl *g);
 
 #endif
