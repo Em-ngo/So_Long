@@ -32,8 +32,6 @@ void	put_img_on_window(t_all *all, int x_pos, int y_pos, char c)
 			all->image[1].img, x_pos, y_pos);
 	else if (c == 'C')
 		init_anim(all, x_pos, y_pos);
-		//mlx_put_image_to_window(all->data.mlx_ptr, all->data.mlx_win,
-		//	all->image[2].img, x_pos, y_pos);
 	else
 		put_img_on_window_2(all, x_pos, y_pos, c);
 }
