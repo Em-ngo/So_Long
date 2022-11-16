@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 16:37:00 by engo              #+#    #+#             */
-/*   Updated: 2022/11/16 12:41:12 by engo             ###   ########.fr       */
+/*   Created: 2022/9/24 16:37:00 by engo              #+#    #+#             */
+/*   Updated: 2022/11/16 17:36:48 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	put_img_on_window_2(t_all *all, int x_pos, int y_pos, char c)
 {
 	if (c == '0')
 		mlx_put_image_to_window(all->data.mlx_ptr, all->data.mlx_win,
-			all->image[3].img, x_pos, y_pos);
+			all->image[2].img, x_pos, y_pos);
 	else if (c == 'E')
 		mlx_put_image_to_window(all->data.mlx_ptr, all->data.mlx_win,
-			all->image[4].img, x_pos, y_pos);
+			all->image[3].img, x_pos, y_pos);
 }
 
 void	put_img_on_window(t_all *all, int x_pos, int y_pos, char c)
@@ -31,8 +31,9 @@ void	put_img_on_window(t_all *all, int x_pos, int y_pos, char c)
 		mlx_put_image_to_window(all->data.mlx_ptr, all->data.mlx_win,
 			all->image[1].img, x_pos, y_pos);
 	else if (c == 'C')
-		mlx_put_image_to_window(all->data.mlx_ptr, all->data.mlx_win,
-			all->image[2].img, x_pos, y_pos);
+		init_anim(all, x_pos, y_pos);
+		//mlx_put_image_to_window(all->data.mlx_ptr, all->data.mlx_win,
+		//	all->image[2].img, x_pos, y_pos);
 	else
 		put_img_on_window_2(all, x_pos, y_pos, c);
 }
@@ -43,12 +44,24 @@ void	init_img(t_all *all)
 			&all->image[0].height, &all->image[0].width);
 	all->image[1].img = mlx_xpm_file_to_image(all->data.mlx_ptr, PLAYER,
 			&all->image[1].height, &all->image[1].width);
-	all->image[2].img = mlx_xpm_file_to_image(all->data.mlx_ptr, COLLECT,
+	all->image[2].img = mlx_xpm_file_to_image(all->data.mlx_ptr, FLOOR,
 			&all->image[2].height, &all->image[2].width);
-	all->image[3].img = mlx_xpm_file_to_image(all->data.mlx_ptr, FLOOR,
+	all->image[3].img = mlx_xpm_file_to_image(all->data.mlx_ptr, EXIT,
 			&all->image[3].height, &all->image[3].width);
-	all->image[4].img = mlx_xpm_file_to_image(all->data.mlx_ptr, EXIT,
+	all->image[4].img = mlx_xpm_file_to_image(all->data.mlx_ptr, CAT1,
 			&all->image[4].height, &all->image[4].width);
+	all->image[5].img = mlx_xpm_file_to_image(all->data.mlx_ptr, CAT2,
+			&all->image[5].height, &all->image[5].width);
+	all->image[6].img = mlx_xpm_file_to_image(all->data.mlx_ptr, CAT3,
+			&all->image[6].height, &all->image[6].width);
+	all->image[7].img = mlx_xpm_file_to_image(all->data.mlx_ptr, CAT4,
+			&all->image[7].height, &all->image[7].width);
+	all->image[8].img = mlx_xpm_file_to_image(all->data.mlx_ptr, CAT5,
+			&all->image[8].height, &all->image[8].width);
+	all->image[9].img = mlx_xpm_file_to_image(all->data.mlx_ptr, CAT6,
+			&all->image[9].height, &all->image[9].width);
+	all->image[10].img = mlx_xpm_file_to_image(all->data.mlx_ptr, CAT7,
+			&all->image[10].height, &all->image[10].width);
 }
 
 void	open_map(t_all *g, char **av)

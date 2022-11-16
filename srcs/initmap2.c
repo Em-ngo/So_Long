@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 19:01:33 by engo              #+#    #+#             */
-/*   Updated: 2022/11/16 12:51:14 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/16 18:16:54 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,41 @@ void	check_character(t_all *all)
 		}
 		n = -1;
 	}
+}
+
+void	init_anim2(t_all *a, int x, int y, int *i)
+{
+	if (*i >= 2000 && *i < 2400)
+		mlx_put_image_to_window(a->data.mlx_ptr, a->data.mlx_win,
+			a->image[9].img, x, y);
+	else if (*i == 2400)
+	{
+		mlx_put_image_to_window(a->data.mlx_ptr, a->data.mlx_win,
+			a->image[10].img, x, y);
+		*i = 1;
+	}
+}
+
+void	init_anim(t_all *a, int x, int y)
+{
+	static int	i = 1;
+
+	i++;
+	if (i < 400)
+		mlx_put_image_to_window(a->data.mlx_ptr, a->data.mlx_win,
+			a->image[4].img, x, y);
+	else if (i >= 400 && i < 800)
+		mlx_put_image_to_window(a->data.mlx_ptr, a->data.mlx_win,
+			a->image[5].img, x, y);
+	else if (i >= 800 && i < 1200)
+		mlx_put_image_to_window(a->data.mlx_ptr, a->data.mlx_win,
+			a->image[6].img, x, y);
+	else if (i >= 1200 && i < 1600)
+		mlx_put_image_to_window(a->data.mlx_ptr, a->data.mlx_win,
+			a->image[7].img, x, y);
+	else if (i >= 1600 && i < 2000)
+		mlx_put_image_to_window(a->data.mlx_ptr, a->data.mlx_win,
+			a->image[8].img, x, y);
+	else
+		init_anim2(a, x, y, &i);
 }

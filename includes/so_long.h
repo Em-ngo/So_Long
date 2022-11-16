@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/11/16 12:47:27 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/16 18:15:07 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@
 # define COLLECT "sprites/collect.xpm"
 # define FLOOR "sprites/floor.xpm"
 # define EXIT "sprites/exit.xpm"
+# define CAT1 "sprites/1.xpm"
+# define CAT2 "sprites/2.xpm"
+# define CAT3 "sprites/3.xpm"
+# define CAT4 "sprites/4.xpm"
+# define CAT5 "sprites/5.xpm"
+# define CAT6 "sprites/6.xpm"
+# define CAT7 "sprites/7.xpm"
+
 
 
 typedef struct s_path
@@ -81,7 +89,7 @@ typedef struct s_all
 	int		player;
 	int		exit;
 	t_data	data;
-	t_img	image[5];
+	t_img	image[11];
 }				t_all;
 
 typedef struct s_gnl
@@ -128,5 +136,5 @@ void	ft_check_assets(t_all *all);
 void	free_free(t_all *all);
 void	check_character(t_all *all);
 int		check_double_n(char *line, t_all *all, t_gnl *g);
-
+void	init_anim(t_all *a, int x, int y);
 #endif

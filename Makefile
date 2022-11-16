@@ -20,6 +20,7 @@ SRCS =	so_long.c \
 		pathfinding2.c \
 		libft.c \
 		free.c \
+		free_image.c \
 		ft_printf/ft_convert2.c \
 		ft_printf/ft_convert.c \
 		ft_printf/ft_printf.c \
