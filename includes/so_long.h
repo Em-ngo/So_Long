@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:16:14 by engo              #+#    #+#             */
-/*   Updated: 2022/11/16 18:15:07 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/18 15:01:32 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@
 # define CAT5 "sprites/5.xpm"
 # define CAT6 "sprites/6.xpm"
 # define CAT7 "sprites/7.xpm"
-
-
 
 typedef struct s_path
 {
@@ -133,8 +131,10 @@ void	free_all(t_all *all, t_path *p, char **map);
 void	free_pathfinding(t_all *all, t_path *p, char **map);
 int		check_assets(char *path);
 void	ft_check_assets(t_all *all);
-void	free_free(t_all *all);
+void	free_free(t_all *all, int i);
 void	check_character(t_all *all);
 int		check_double_n(char *line, t_all *all, t_gnl *g);
 void	init_anim(t_all *a, int x, int y);
+void	wall_everywhere(t_all *all);
+
 #endif

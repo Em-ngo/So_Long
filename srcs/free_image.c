@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:07:21 by engo              #+#    #+#             */
-/*   Updated: 2022/11/16 18:08:24 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/18 14:59:55 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,7 @@
 
 void	free_img(t_all *g)
 {
-	int	i;
-
-	i = 0;
-	if (g->map != NULL)
-	{
-		while (g->map[i] != NULL)
-		{
-			free(g->map[i]);
-			i++;
-		}
-		free(g->map);
-	}
+	free_map(g->map);
 	mlx_destroy_image(g->data.mlx_ptr, g->image[0].img);
 	mlx_destroy_image(g->data.mlx_ptr, g->image[1].img);
 	mlx_destroy_image(g->data.mlx_ptr, g->image[2].img);

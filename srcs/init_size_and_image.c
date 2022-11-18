@@ -78,8 +78,7 @@ void	open_map(t_all *g, char **av)
 	if (g->map == NULL)
 	{	
 		ft_putstr_fd("Error, this is a not file.\n", 2);
-		free_free(g);
-		exit (1);
+		free_free(g, 0);
 	}
 	close(fd);
 	check_character(g);
@@ -96,8 +95,7 @@ void	init_size_map(t_all *g)
 		if (ft_strlen(g->map[0]) != ft_strlen(g->map[i]))
 		{
 			ft_putstr_fd("Error, the map is not rectangular.\n", 2);
-			free_free(g);
-			exit (1);
+			free_free(g, 0);
 		}
 		i++;
 	}
@@ -106,7 +104,6 @@ void	init_size_map(t_all *g)
 	if (g->data.collectibles == 0)
 	{
 		ft_putstr_fd("No collectibles found.\n", 2);
-		free_free(g);
-		exit (1);
+		free_free(g, 0);
 	}
 }

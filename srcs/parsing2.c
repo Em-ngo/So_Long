@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:00:31 by engo              #+#    #+#             */
-/*   Updated: 2022/11/16 18:23:02 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/18 15:00:56 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_check_assets(t_all *all)
 {
 	if (check_assets(PLAYER) == 1 || check_assets(WALL) == 1
 		|| check_assets(CAT1) == 1 || check_assets(FLOOR) == 1
-		|| check_assets(CAT2) == 1|| check_assets(CAT3) == 1
-		|| check_assets(CAT4) == 1|| check_assets(CAT5) == 1
+		|| check_assets(CAT2) == 1 || check_assets(CAT3) == 1
+		|| check_assets(CAT4) == 1 || check_assets(CAT5) == 1
 		|| check_assets(CAT6) == 1 || check_assets(EXIT) == 1
 		|| check_assets(CAT7) == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 19:01:33 by engo              #+#    #+#             */
-/*   Updated: 2022/11/16 18:16:54 by engo             ###   ########.fr       */
+/*   Updated: 2022/11/18 15:01:12 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ void	check_character(t_all *all)
 				&& all->map[i][n] != 'C')
 			{
 				ft_putstr_fd("Error, the map is not valid.\n", 2);
-				free_free(all);
-				exit (1);
+				free_free(all, 0);
 			}
 		}
 		n = -1;
@@ -99,4 +98,30 @@ void	init_anim(t_all *a, int x, int y)
 			a->image[8].img, x, y);
 	else
 		init_anim2(a, x, y, &i);
+}
+
+void	wall_everywhere(t_all *all)
+{
+	int		i;
+
+	i = -1;
+	while (all->map[0][++i])
+	{
+		if (all->map[0][i] != '1')
+			free_free(all, 1);
+	}
+	i = -1;
+	while (all->map[++i])
+	{
+		if (all->map[i][0] != '1')
+			free_free(all, 1);
+		else if (all->map[i][all->x - 1] != '1')
+			free_free(all, 1);
+	}
+	i = -1;
+	while (all->map[all->y - 1][++i])
+	{
+		if (all->map[all->y - 1][i] != '1')
+			free_free(all, 1);
+	}
 }

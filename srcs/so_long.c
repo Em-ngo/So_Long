@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 13:34:52 by engo              #+#    #+#             */
-/*   Updated: 2022/11/15 18:31:13 by vloth            ###   ########.fr       */
+/*   Updated: 2022/11/18 14:51:10 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	begin_parse_error(t_all *jeu)
 		free(jeu->data.mlx_ptr);
 		exit (1);
 	}
+	wall_everywhere(jeu);
 }
 
 void	size_window_limit(t_all *all)
